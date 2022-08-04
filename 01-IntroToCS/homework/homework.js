@@ -28,8 +28,8 @@ function DecimalABinario(num) {
   }
   arr.reverse();
   let numString = arr.toString().replace(/,/g,"");
-  //let binar = parseInt(numString, 10);
-
+  //join("") en vez del toString().replace()
+  
   return numString;
 
 }
