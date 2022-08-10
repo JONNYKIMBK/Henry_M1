@@ -6,7 +6,8 @@ function counter() {
   /*
   Ejercicio 1
 
-  La función counter debe retornar otra función. Esta función retornada debe actuar como un contador, retornando un valor numérico que empieza en 1 e incrementa con cada invocación.
+  La función counter debe retornar otra función. Esta función retornada debe actuar como un contador, retornando un 
+  valor numérico que empieza en 1 e incrementa con cada invocación.
 
   Ejemplo:
   const nuevoContador = counter()
@@ -60,9 +61,10 @@ function cacheFunction(cb) {
     if (cache.hasOwnProperty(arg)){
       return cache[arg];
     }
-    let a = cb(arg);
-    cache[arg] = a;
-    return a;
+      let a = cb(arg);
+      cache[arg] = a;
+      return a;
+       
     
   }
 
@@ -106,9 +108,9 @@ function crearCadena(delimitadorIzquierda, delimitadorDerecha, cadena) {
   return delimitadorIzquierda + cadena + delimitadorDerecha;
 }
 
-let textoAsteriscos = crearCadena.bind(this.cadena, "*","*");
-let textoGuiones = crearCadena.bind(this.cadena, "-","-");;
-let textoUnderscore = crearCadena.bind(this.cadena, "_","_");;
+let textoAsteriscos = crearCadena.bind(undefined, "*","*");
+let textoGuiones = crearCadena.bind(undefined, "-","-");;
+let textoUnderscore = crearCadena.bind(undefined, "_","_");;
 
 // No modifiquen nada debajo de esta linea
 // --------------------------------

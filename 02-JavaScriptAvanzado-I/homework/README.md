@@ -99,7 +99,7 @@ console.log(pm);
 "4" - 2 //2
 "4px" - 2 // NaN
 7 / 0 //Infinity
-{}[0] //[0]
+{}[0] //undefined
 parseInt("09") //9
 5 && 2 // true   (2)
 2 && 5 // 5
