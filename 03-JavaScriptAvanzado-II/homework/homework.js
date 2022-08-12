@@ -58,12 +58,10 @@ function cacheFunction(cb) {
   */
     let cache={};
     return function result (arg){
-    if (cache.hasOwnProperty(arg)){
-      return cache[arg];
+    if (!cache.hasOwnProperty(arg)){
+      cache[arg] = cb(arg);
     }
-      let a = cb(arg);
-      cache[arg] = a;
-      return a;
+      return cache[arg];
        
     
   }
