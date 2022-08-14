@@ -47,7 +47,7 @@ Pueden utilizar class o función constructora.
 
 function Queue() {
 
-  this.data = Array.prototype.slice.call(arguments, 0);
+  this.data = [];
   this.enqueue = enqueue;
   this.dequeue = dequeue;
   this.size = size;
