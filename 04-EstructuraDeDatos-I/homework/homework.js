@@ -20,11 +20,10 @@ funciones que logren los mismos resultados pero de manera iterativa.
 */
 
 function nFactorial(n) {
-  if (n<=0){
-    return 1;
-  }else{
-    return n * nFactorial(n-1);
-  }
+  if (n<2) return 1;
+  if (n===2) return 2;
+  return n * nFactorial(n-1);
+  
 }
 
 function nFibonacci(n) {
@@ -45,7 +44,11 @@ el primero que se quita. Definir los siguientes métodos:
 Pueden utilizar class o función constructora.
 */
 
-function Queue() {
+/*
+      //Con funcion contructora
+
+
+  function Queue() {
 
   this.data = [];
   this.enqueue = enqueue;
@@ -64,6 +67,27 @@ function Queue() {
     return this.data.length;
   }
 }
+
+  //se pueden usar prototypes
+*/
+    //con clases
+    class Queue {
+      constructor(){
+        this.data = [];
+      }
+
+      size(){
+        return this.data.length;
+      }
+
+      enqueue(value){
+        this.data.push(value);
+      }
+
+      dequeue(){
+        return this.data.shift();
+      }
+    }
 
 
 // No modifiquen nada debajo de esta linea
