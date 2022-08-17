@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 /*
 Implementar la clase LinkedList, definiendo los siguientes métodos:
@@ -11,9 +11,32 @@ Implementar la clase LinkedList, definiendo los siguientes métodos:
   En caso de que la búsqueda no arroje resultados, search debe retornar null.
 */
 
-function LinkedList() {}
+function LinkedList() {
+   this.size=0;
+   this.head=null;
+}
 
-function Node(value) {}
+function Node(data) {
+  this.data = data;
+  this.next = null;
+}
+
+LinkedList.prototype.add = function(data){
+  var node = new Node(data);
+  var current = this.head;
+
+  if (!current){
+    this.head=node;
+    this.size++;
+    return node;
+  }
+  while(current.next){
+    current=current.next;
+  }
+  current.next=node;
+  this.size++;
+  return node;
+}
 
 /*
 Implementar la clase HashTable.
