@@ -38,6 +38,12 @@ LinkedList.prototype.add = function(data){
   return node;
 }
 
+LinkedList.prototype.remove=function(pos){
+  if (this.size===0){
+    return ("La lista esta vacia")
+  }
+}
+
 /*
 Implementar la clase HashTable.
 
