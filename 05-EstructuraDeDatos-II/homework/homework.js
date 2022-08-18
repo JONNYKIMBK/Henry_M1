@@ -112,46 +112,50 @@ Ejemplo: supongamos que quiero guardar {instructora: 'Ani'} en la tabla. Primero
 
 class HashTable {
   constructor (){
-    this.table = new Array(35);
-    this.numBuckets = this.table.length;
+    this.table = [];
+    this.numBuckets = 35;
   }
 
-  hash(input){
+  hash(key){
     let hash=0;
 
-    for(let i =0; i<input.length;i++){
-      hash += input.charCodeAt(i);
+    for(let i =0; i<key.length;i++){
+      hash += key.charCodeAt(i);
       
     }
-    hash = hash % 35;
+    hash = hash % this.numBuckets;
 
     return hash;
 
   }
 
   set(key, value){
-    
-    let hashKey = this.hash(key);
-    this.table[hashKey]= [key, value];
+    if (typeof key !== "string") throw new TypeError; //tiene que ser una string
+    let pos = this.hash(key);
+
+    //si esta vacio se crea un objeto
+    if (this.table[pos]=== undefined){
+      this.table[pos]= {};
+    }
+    this.table[pos][key]= value;
+    //Object.assign(this.table[pos], {key, value});
+
 
   }
 
   get(key){
-    let hashKey = this.hash(key);
+    let pos = this.hash(key);
 
-    if(this.table[hashKey][0]===key){
-      return this.table[hashKey][1];
-    }
+    
+    return this.table[pos][key];
+    
 
   }
 
   hasKey(key){
-    let hashKey= this.hash(key);
+    let pos= this.hash(key);
 
-    if(this.table[hashKey][0]===key){
-      return true;
-    }
-    return false;
+    return this.table[pos].hasOwnProperty(key);
   }
 
 }
