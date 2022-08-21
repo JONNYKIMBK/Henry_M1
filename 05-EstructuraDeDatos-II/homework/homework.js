@@ -155,7 +155,7 @@ class HashTable {
   hasKey(key){
     let pos= this.hash(key);
 
-    return this.table[pos].hasOwnProperty(key);
+    return this.table[pos].hasOwnProperty(key); //busca si tiene la propiedad
   }
 
 }
