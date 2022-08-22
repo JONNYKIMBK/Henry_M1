@@ -40,7 +40,7 @@ BinarySearchTree.prototype.insert= function(data){
         this.left.insert(data);
       }
     }
-    if (data>=this.value){
+    if (data>this.value){
       if (this.right===null){
         this.right= new BinarySearchTree(data);
       }else{
@@ -135,8 +135,18 @@ BinarySearchTree.prototype.depthFirstForEach= function(cb, order = "in-order"){
       }
     }
 }
+BinarySearchTree.prototype.breadthFirstForEach= function(cb, queue=[]){
+  if(this.left !== null) queue.push(this.left);
+  if(this.right !== null) queue.push(this.right);
 
-BinarySearchTree.prototype.breadthFirstForEach= function(cb, queue = []){
+  cb(this.value);
+
+  if(queue.length > 0){
+    queue.shift().breadthFirstForEach(cb,queue);
+  }
+}
+
+/*BinarySearchTree.prototype.breadthFirstForEach= function(cb, queue = []){
     cb(this.value);
     if (this.left){
       queue.push(this.left);
@@ -148,7 +158,7 @@ BinarySearchTree.prototype.breadthFirstForEach= function(cb, queue = []){
       queue.shift().breadthFirstForEach(cb, queue);
     }
 
-}
+}*/
 
 // No modifiquen nada debajo de esta linea
 // --------------------------------
