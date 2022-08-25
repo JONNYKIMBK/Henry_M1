@@ -6,15 +6,12 @@ function factorear(num) {
   // los factores por los cuales se va dividiendo a dicho número (De menor a mayor)
   // Ej: factorear(180) --> [1, 2, 2, 3, 3, 5] Ya que 1x2x2x3x3x5 = 180 y son todos números primos
   // Tu código:
-  var arr =[];
+  var arr =[1];
   var factor=2;
   var numero=num;
 
   function factoreo(arr, factor){
-    if(numero === 1){
-      arr.unshift(1);
-    }
-    
+        
     if (numero%factor===0){
       arr.push(factor);
       numero=numero/factor;
@@ -25,8 +22,6 @@ function factorear(num) {
       return factoreo(arr, factor);
     
     }
-    
-        
     return arr;
 
   }
