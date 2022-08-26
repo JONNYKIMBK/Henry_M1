@@ -6,7 +6,8 @@ function factorear(num) {
   // los factores por los cuales se va dividiendo a dicho número (De menor a mayor)
   // Ej: factorear(180) --> [1, 2, 2, 3, 3, 5] Ya que 1x2x2x3x3x5 = 180 y son todos números primos
   // Tu código:
-  var arr =[1];
+
+ /* var arr =[1];
   var factor=2;
   var numero=num;
 
@@ -27,7 +28,20 @@ function factorear(num) {
   }
   
   return factoreo(arr, factor);
+*/
 
+    let arr=[1];
+    let val=2;
+
+    while (num>1){
+      if(num%val===0){
+        arr.push(val);
+        num=num/val;
+      }else{
+        val++;
+      }
+    }
+    return arr;
 }
   
 
@@ -73,7 +87,7 @@ function selectionSort(array) {
   // el array recibido como parámetro utilizando dos arreglos
   // Devolver el array ordenado resultante
   // Tu código:
-  for (let i = 0; i < array.length; i++) {
+  /*for (let i = 0; i < array.length; i++) {
     let min = array[i];
     let pos = 0;
     for (let j = i; j < array.length; j++) {
@@ -87,7 +101,26 @@ function selectionSort(array) {
       array[i]=min;
     }
   }
-  return array
+  return array*/
+
+  for (let i = 0; i < array.length; i++) {
+
+    let min=i;
+
+    for (let j = i+1; j < array.length; j++) {
+
+      if(array[min]>array[j]){
+        min=j;
+      }
+    }
+
+    if(i!==min){
+      let temp=array[i];
+      array[i]= array[min];
+      array[min]=temp;
+    }
+  }
+  return array;
 }
 
 
