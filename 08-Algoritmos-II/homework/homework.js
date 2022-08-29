@@ -26,7 +26,7 @@ function quickSort(array) {
     }
     //se concatena la izquierda ordenada recursiva con el pivot y la derecha ordenada recursiva ys e retorna
     return [].concat(quickSort(left), pivot, quickSort(right));
-
+    
 }
 
 function mergeSort(array) {
