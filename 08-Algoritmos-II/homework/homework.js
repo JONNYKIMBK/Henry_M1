@@ -7,8 +7,8 @@ function quickSort(array) {
   // Devolver el array ordenado resultante
   // Tu código:
 
-    if(array.length<1){
-      return[];
+    /*if(array.length<1){
+      return [];
     }
 
     var left=[];
@@ -26,7 +26,34 @@ function quickSort(array) {
     }
     //se concatena la izquierda ordenada recursiva con el pivot y la derecha ordenada recursiva ys e retorna
     return [].concat(quickSort(left), pivot, quickSort(right));
-    
+    */
+
+    if (array.length<=1){
+      //si el length es menor o igual a 1 devuelve el array
+      return array;
+    }
+    //se elige un numero al azar
+    let pivot = array[Math.floor(Math.random()*array.length)];
+    //se definen 3 arreglos
+    let left=[];
+    let right=[];
+    let equal=[];
+
+    for (let i =0;i<array.length;i++){
+      if (array[i]<pivot){
+        //si es menor al pivot va al array left
+        left.push(array[i]);
+      }else if(array[i]>pivot){
+        //si es mayor al pivot va al array right
+        right.push(array[i]);
+      }else{
+        //si es igual va al array equal
+        equal.push(array[i]);
+      }
+
+    }
+    //se retorna la recursiva de la iquierda concatenado con el array equal y la recursiva del right
+    return quickSort(left).concat(equal).concat(quickSort(right));
 }
 
 function mergeSort(array) {
